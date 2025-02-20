@@ -42,6 +42,10 @@ dependencies:
   # responsiveness
   flutter_screenutil: ^5.9.3
   google_fonts: ^6.2.1
+  flutter_native_splash: 2.4.4
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +60,10 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+flutter_native_splash:
+  image: assets/logo abosultan.png  # Path to your logo image
+  android: true  # Optional: Set to true to use drawable for Android
+  ios: true  # Optional: Enable for iOS
 
 # The following section is specific to Flutter packages.
 flutter:

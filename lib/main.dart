@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'features/onboarding/presentaion/view/screens/onboarding_screen.dart';
 
-void main() {
+void main()async {
+  await ScreenUtil.ensureScreenSize();
+
   runApp(const MyApp());
 }
 
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Abo Sultan',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

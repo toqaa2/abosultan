@@ -1,8 +1,5 @@
-import 'package:abosultan/main.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 import '../../logic/model/onboarding_model.dart';
 
@@ -29,7 +26,7 @@ class OnboardingCubit extends Cubit<OnboardingState> {
           duration: Duration(milliseconds: 300), curve: Curves.easeIn);
       emit(NextPage());
     } else {
-      print("not working");
+      emit(LastPageReached());
     }
   }
   void skipToLogin() {
