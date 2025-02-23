@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import '../../../../../core/shared/widgets/custom_button.dart';
-import '../../../../../core/style/colors.dart';
-import '../../../../verify_email/presentaion/view/screens/verify_email_screen.dart';
-import '../widgets/logo_widget.dart';
+
+
+import '../../../../../../core/utils/app_imports.dart';
 
 class SignUpScreen extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();

@@ -1,12 +1,5 @@
-import 'package:abosultan/core/shared/widgets/custom_button.dart';
-import 'package:abosultan/core/style/colors.dart';
-import 'package:abosultan/features/auth/presentaion/manager/auth_cubit.dart';
-import 'package:abosultan/features/auth/presentaion/view/screens/signup_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/style/text_style.dart';
-import '../../../../forget_password/view/screens/forget_password_screen.dart';
-import '../widgets/logo_widget.dart';
+
+import '../../../../../../core/utils/app_imports.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});

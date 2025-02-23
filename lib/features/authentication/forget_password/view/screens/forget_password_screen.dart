@@ -1,8 +1,8 @@
-import 'package:abosultan/core/shared/widgets/custom_button.dart';
-import 'package:abosultan/core/style/colors.dart';
-import 'package:flutter/material.dart';
 
-import '../../../../core/style/text_style.dart';
+
+
+
+import '../../../../../core/utils/app_imports.dart';
 
 class ForgetPasswordPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();

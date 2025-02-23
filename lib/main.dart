@@ -1,11 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'features/onboarding/presentaion/view/screens/onboarding_screen.dart';
+
+import 'package:abosultan/core/network/api_service.dart';
+
+import 'core/utils/app_imports.dart';
 
 void main()async {
   await ScreenUtil.ensureScreenSize();
-
+await CacheHelper.init();
+await ApiService.init();
+// CacheHelper.removeData(key: CacheKeys.firstTimeToOpenApp);
   runApp(const MyApp());
 }
 
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ScreenUtilInit(child: OnboardingScreen()),
+      home: ScreenUtilInit(child: AppConstants.firstTimeToOpenApp? OnboardingScreen():SignInScreen()),
     );
   }
 }
