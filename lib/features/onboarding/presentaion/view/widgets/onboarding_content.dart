@@ -16,16 +16,17 @@ class OnboardingContent extends StatelessWidget {
   final int totalSteps;
   final bool showSkipButton;
 
-  const OnboardingContent(
-      {super.key,
-      required this.image,
-      required this.text,
-      required this.onNext,
-      required this.onSkip,
-      required this.currentIndex,
-      required this.totalSteps,
-      required this.showSkipButton,
-      required this.buttonText});
+  const OnboardingContent({
+    super.key,
+    required this.image,
+    required this.text,
+    required this.onNext,
+    required this.onSkip,
+    required this.currentIndex,
+    required this.totalSteps,
+    required this.showSkipButton,
+    required this.buttonText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +47,10 @@ class OnboardingContent extends StatelessWidget {
                 ),
               ],
             ),
-          if (showSkipButton == false)
-            SizedBox(
-              height: 25.h,
-            ),
+          if (!showSkipButton) SizedBox(height: 25.h),
           Image.asset(
             image,
-            height: 300.h,
+            height: MediaQuery.of(context).size.height * 0.4,
           ),
           SizedBox(height: 20.h),
           StepIndicator(currentIndex: currentIndex, totalSteps: totalSteps),

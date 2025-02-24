@@ -1,5 +1,6 @@
 
 
+
 import '../../../../../core/utils/app_imports.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -22,7 +23,9 @@ class OnboardingScreen extends StatelessWidget {
         builder: (context, state) {
           OnboardingCubit cubit = OnboardingCubit.get(context);
           return Scaffold(
-            body: Expanded(
+            body: SizedBox(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height,
               child: PageView.builder(
                 controller: cubit.pageController,
                 itemCount: cubit.onboardingData.length,
@@ -34,10 +37,9 @@ class OnboardingScreen extends StatelessWidget {
                     image: cubit.onboardingData[index].image,
                     text: cubit.onboardingData[index].text,
                     onNext: cubit.nextPage,
-                    onSkip:()=> cubit.nextPage(isSkip:true),
+                    onSkip: () => cubit.nextPage(isSkip: true),
                     showSkipButton: cubit.currentIndex < 2,
-                    buttonText:
-                        cubit.currentIndex < 2 ? "التالي" : "ابدأ الان",
+                    buttonText: cubit.currentIndex < 2 ? "التالي" : "ابدأ الان",
                   );
                 },
               ),

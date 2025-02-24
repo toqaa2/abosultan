@@ -1,4 +1,5 @@
 
+
 import '../../../../../../core/utils/app_imports.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -20,6 +21,7 @@ class SignInScreen extends StatelessWidget {
                 key: cubit.formKey,
                 child: SingleChildScrollView(
                   child: Column(
+                    spacing: 15,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       LogoWidget(),
@@ -33,7 +35,7 @@ class SignInScreen extends StatelessWidget {
                         },
                         decoration: InputDecoration(
                           labelText: 'البريد الالكتروني',
-                          errorText: cubit.emailError == null ? null : cubit.emailError,
+                          errorText: cubit.emailError ,
                         ),
                         keyboardType: TextInputType.emailAddress,
                       ),
@@ -47,11 +49,10 @@ class SignInScreen extends StatelessWidget {
                         controller: cubit.passwordController,
                         decoration: InputDecoration(
                           labelText: 'كلمة السر',
-                          errorText: cubit.passwordError == null ? null : cubit.passwordError,
+                          errorText: cubit.passwordError ,
                         ),
                         obscureText: true,
                       ),
-                      SizedBox(height: 20),
                       TextButton(onPressed: (){
                         Navigator.push(
                           context,
@@ -69,6 +70,24 @@ class SignInScreen extends StatelessWidget {
                           }
                         },
                         color: AppColors.mainColor,
+                        borderRadius: 8,
+                      ),
+                      CustomElevatedButton(
+                        text: "تسجيل الدخول باستخدام جوجل",
+                        onPressed: () {
+
+                        },
+                        color: Colors.blueAccent,
+                        leadingIcon: "assets/google.png",
+                        borderRadius: 8,
+                      ),
+                      CustomElevatedButton(
+                        text: "تسجيل الدخول باستخدام ابل",
+                        onPressed: () {
+
+                        },
+                        color: Colors.black,
+                        leadingIcon: "assets/apple.png",
                         borderRadius: 8,
                       ),
                       TextButton(
