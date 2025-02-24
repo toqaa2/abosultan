@@ -8,8 +8,16 @@ void main() async {
   await CacheHelper.init();
   await ApiService.init();
   await EasyLocalization.ensureInitialized();
-// CacheHelper.removeData(key: CacheKeys.firstTimeToOpenApp);
-  runApp(const MyApp());
+// await CacheHelper.removeData(key: CacheKeys.firstTimeToOpenApp);
+  runApp(EasyLocalization(
+      assetLoader: const CodegenLoader(),
+      startLocale: const Locale('ar'),
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/i18n',
+      useFallbackTranslations: true,
+      fallbackLocale: const Locale('en'),
+      saveLocale: true,
+      child:  MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,27 +25,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyLocalization(
-        assetLoader: const CodegenLoader(),
-        startLocale: const Locale('en'),
-        supportedLocales: const [Locale('en'), Locale('ar')],
-        path: 'assets/i18n',
-        useFallbackTranslations: true,
-        fallbackLocale: const Locale('en'),
-        saveLocale: true,
-        child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Abo Sultan',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home:
-           ScreenUtilInit(
-                child: AppConstants.firstTimeToOpenApp
-                    ? OnboardingScreen()
-                    : SignInScreen())
-      ),
-    );
+    return MaterialApp(
+      supportedLocales: context.supportedLocales,
+    localizationsDelegates: context.localizationDelegates,
+    locale: context.locale,
+    debugShowCheckedModeBanner: false,
+    title: 'Abo Sultan',
+    theme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      useMaterial3: true,
+    ),
+    home:
+       ScreenUtilInit(
+            child: AppConstants.firstTimeToOpenApp
+                ? OnboardingScreen()
+                : SignInScreen())
+          );
   }
 }

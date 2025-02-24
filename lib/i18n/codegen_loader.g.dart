@@ -33,7 +33,7 @@ class CodegenLoader extends AssetLoader{
   "SIGNIN": "تسجيل الدخول",
   "LOGINWITHGOOGLE": "تسجيل الدخول باستخدام جوجل",
   "LOGINWITHAPPLE": "تسجيل الدخول باستخدام ابل",
-  "DON'THAVEACCOUNT": "ليس لديك حساب؟ قم بالتسجيل الان",
+  "DONTHAVEACCOUNT": "ليس لديك حساب؟ قم بالتسجيل الان",
   "RETYPEPASSWORD": "أدخل عنوان بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك",
   "RESENDCODE": "إرسال رابط إعادة تعيين كلمة المرور"
 };
@@ -56,7 +56,7 @@ static const Map<String,dynamic> _en = {
   "SIGNIN": "Sign In",
   "LOGINWITHGOOGLE": "Login With Google",
   "LOGINWITHAPPLE": "Login With Apple",
-  "DON'THAVEACCOUNT": "Don't have an account? Sign up now",
+  "DONTHAVEACCOUNT": "Don't have an account? Sign up now",
   "RETYPEPASSWORD": "Enter your email address to reset your password again",
   "RESENDCODE": "Resend Code"
 };
