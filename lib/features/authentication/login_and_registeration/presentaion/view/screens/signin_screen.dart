@@ -1,6 +1,10 @@
 
 
+import 'package:abosultan/i18n/locale_keys.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import '../../../../../../core/utils/app_imports.dart';
+import '../widgets/change_lang_button.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -24,6 +28,13 @@ class SignInScreen extends StatelessWidget {
                     spacing: 15,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      ChangeLanguageButton(
+                        onTap: () => context.setLocale(
+                          context.locale.toString() == 'ar'
+                              ? const Locale('en')
+                              : const Locale('ar'),
+                        ),
+                      ),
                       LogoWidget(),
                       TextFormField(
                         controller: cubit.emailController,
@@ -34,7 +45,7 @@ class SignInScreen extends StatelessWidget {
                           return cubit.emailError;
                         },
                         decoration: InputDecoration(
-                          labelText: 'البريد الالكتروني',
+                          labelText: LocaleKeys.EMAILADDRESS.tr(),
                           errorText: cubit.emailError ,
                         ),
                         keyboardType: TextInputType.emailAddress,
@@ -48,7 +59,7 @@ class SignInScreen extends StatelessWidget {
                         },
                         controller: cubit.passwordController,
                         decoration: InputDecoration(
-                          labelText: 'كلمة السر',
+                          labelText: LocaleKeys.PASSWORD.tr(),
                           errorText: cubit.passwordError ,
                         ),
                         obscureText: true,
@@ -59,9 +70,9 @@ class SignInScreen extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => ForgetPasswordPage()),
                         );
-                      } ,child: Text("نسيت كلمة السر؟")),
+                      } ,child: Text(LocaleKeys.FORGOTPASSWORD.tr(),)),
                       CustomElevatedButton(
-                        text: "تسجيل الدخول",
+                        text: LocaleKeys.SIGNIN.tr(),
                         onPressed: () {
                           if (cubit.formKey.currentState!.validate()) {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -73,7 +84,7 @@ class SignInScreen extends StatelessWidget {
                         borderRadius: 8,
                       ),
                       CustomElevatedButton(
-                        text: "تسجيل الدخول باستخدام جوجل",
+                        text: LocaleKeys.LOGINWITHGOOGLE.tr(),
                         onPressed: () {
 
                         },
@@ -82,7 +93,7 @@ class SignInScreen extends StatelessWidget {
                         borderRadius: 8,
                       ),
                       CustomElevatedButton(
-                        text: "تسجيل الدخول باستخدام ابل",
+                        text: LocaleKeys.LOGINWITHAPPLE.tr(),
                         onPressed: () {
 
                         },
@@ -99,7 +110,7 @@ class SignInScreen extends StatelessWidget {
                           );
                         },
                         child: Text(
-                          "ليس لديك حساب؟ قم بالتسجيل الان",
+                          LocaleKeys.DONTHAVEACCOUNT.tr(),
                           style: TextStyles.font12goldSemiBold,
                         ),
                       ),
