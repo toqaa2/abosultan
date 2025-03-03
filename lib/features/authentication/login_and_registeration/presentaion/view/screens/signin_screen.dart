@@ -1,5 +1,6 @@
 
 import '../../../../../../core/utils/app_imports.dart';
+import '../../../../../Home/home_view.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -65,6 +66,11 @@ class SignInScreen extends StatelessWidget {
                           if (cubit.formKey.currentState!.validate()) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('Logging in...')),
+                            );
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()),
                             );
                           }
                         },
