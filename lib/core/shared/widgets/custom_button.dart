@@ -6,6 +6,7 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color color;
   final double borderRadius;
+  final String? leadingIcon;
 
   const CustomElevatedButton({
     super.key,
@@ -13,11 +14,11 @@ class CustomElevatedButton extends StatelessWidget {
     required this.onPressed,
     this.color = Colors.blue,
     this.borderRadius = 8.0,
+    this.leadingIcon,
   });
 
   @override
   Widget build(BuildContext context) {
-
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
@@ -32,9 +33,20 @@ class CustomElevatedButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius),
           ),
         ),
-        child: Text(
-          text,
-          style: TextStyles.font12WhiteSemiBold,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+            Text(
+              text,
+              style: TextStyles.font12WhiteSemiBold,
+            ),
+            if (leadingIcon != null) ...[
+              SizedBox(width: 25),
+              Image.asset(leadingIcon!,height: 20,) ,
+
+            ],
+          ],
         ),
       ),
     );
